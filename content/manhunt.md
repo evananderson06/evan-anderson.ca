@@ -8,7 +8,7 @@ date: "2025-11-09"
 ### How It Started
 It's October of first-year and I met a guy with the same name as me, [Evan Hodson](https://www.linkedin.com/in/evanhodson/). We bonded over the fact that both of our names were Evan. To be honest that's really the only thing I can remember that made us friends. 
 
-I learnt that in Grade 12 he ran a game of manhunt in Waterloo with all of his friends. It was called the **Hodson Hunt**. He talked about how he watched everyone's location using a huge Life360 circle; he sent borders to the players by sending annotated screenshots of Google Maps. Then he started talking about he had this vision of creating an app that could do all of this without the hassle of multiple services and scuffed communication. I thought for a second about how I would build something like that, and then I told him I could do it.
+I learnt that in Grade 12 he ran a game of manhunt in Waterloo with all of his friends. It was called the **Hodson Hunt**. He talked about how he watched everyone's location using a huge Life360 circle; he sent borders to the players by sending annotated screenshots of Google Maps. Then he started talking about how he had this vision of creating an app that could do all of this without the hassle of multiple services and scuffed communication. I thought for a second about how I would build something for him, and then I told him I could do it.
 
 We had two goals.
 
@@ -20,7 +20,7 @@ We started planning very quickly. The Figma board was made, and we both got to w
 
 ![Original Figma Board](/images/manhunt/figmaboard.png)*Entire Hodson Hunt Figma board*
 
-This design file drove all of the development. When Evan added a feature, I implemented it. If I felt like we needed another page, I told him to design it, and then I would implement it. We just repeated this until it was done. It was quite the process, and you can really see the similarity between this board and the final result.
+This design file drove all of the development. When Evan added a feature, I implemented it. If I felt like we needed another page, I told him to design it. We just repeated this until it was done. It was quite the process, and you can really see the similarity between this board and the final result.
 
 ![Planned Home Screen](/images/manhunt/plan.png)*Admin home screen on figma*
 
@@ -29,9 +29,9 @@ This design file drove all of the development. When Evan added a feature, I impl
 With the two images above you can really see the similarity between our design and the result in production. I'd say this goes to show that you don't need to be a highly experienced designer to make a big project like this, just jump in and see what happens. No one is expecting you to make the perfect UI/UX design on your first try.
 
 ### The Architecture
-Ok so now we're going to talk more about the tech behind this app. If you don't want to read about that maybe skip to the next section.
+I'm going to talk more about the tech behind this app. If you don't want to read about that maybe skip to the next section.
 
-Evan asked ChatGPT how someone could build something like this, and when we had our first meeting, he brought up the idea of using a service called [Traccar](https://www.traccar.org/). Traccar - an open source "Modern GPS Tracking Platform" - from my understanding is designed for companies to track fleets of cars, aircraft, etc. Fortunately, they happened to have a mobile client that could connect to their servers, and broadcast a smartphones location to the app. The other big win with Traccar was that it comes with a WebSocket API that broadcasts changes to device locations, allowing us to make updates in realtime. I installed Traccar locally a tinkered with its API, and I realized that it was perfect for what we need, tracking people, not cars.
+Evan asked ChatGPT how someone could build something like this, and when we had our first meeting, he brought up the idea of using a service called [Traccar](https://www.traccar.org/). Traccar - an open source "Modern GPS Tracking Platform" - from my understanding is designed for companies to track fleets of cars, aircraft, etc. Fortunately, they happened to have a mobile client that could connect to their servers, and broadcast a smartphones location to the app. The other big win with Traccar was that it comes with a WebSocket API that broadcasts changes to device locations, allowing us to make updates in realtime. I installed Traccar locally, and tinkered with its API, and I realized that it was perfect for what we need, tracking people, not cars.
 
 With a local installation of Traccar ready to go, I made a Next.js app and set it up with Supabase. I setup the database, made admin users, made all the views, and everything else I needed, *except* real-time updates. The issue with the Traccar API is that with my setup, it exposed all players locations. I wanted to ensure users could only see their own location, and that meant the client could never receive other players locations.
 
