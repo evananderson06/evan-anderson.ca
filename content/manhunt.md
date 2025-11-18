@@ -3,12 +3,12 @@ title: "The Story of Manhunt"
 date: "2025-11-09"
 ---
 
-*Note: The names in this might be a bit confusing. If I say Evan, I'm always referring to Evan Hodson. If I say me, I, etc. I'm referring to myself (Evan Anderson).*
+*TL;DR: We built a real-time manhunt management system from scratch, ran two large scale events (~350 people), everything broke at the worst time, we improvised, people loved it.*
 
 ### How It Started
 It's October of first-year and I met a guy with the same name as me, [Evan Hodson](https://www.linkedin.com/in/evanhodson/). We bonded over the fact that both of our names were Evan. To be honest that's really the only thing I can remember that made us friends. 
 
-I learnt that in Grade 12 he ran a game of manhunt in Waterloo with all of his friends. It was called the **Hodson Hunt**. He talked about how he watched everyone's location using a huge Life360 circle; he sent borders to the players by sending annotated screenshots of Google Maps. Then he started talking about how he had this vision of creating an app that could do all of this without the hassle of multiple services and scuffed communication. I thought for a second about how I would build something for him, and then I told him I could do it.
+I learned that in Grade 12 he ran a game of manhunt in Waterloo with all of his friends. It was called the Hodson Hunt. He talked about how he watched everyone's location using a huge Life360 circle; he sent borders to the players by sending annotated screenshots of Google Maps. Then he started talking about how he had this vision of creating an app that could do all of this without the hassle of multiple services and scuffed communication. I thought for a second about how I would build something for him, and then I told him I could do it.
 
 We had two goals.
 
@@ -31,9 +31,9 @@ With the two images above you can really see the similarity between our design a
 ### The Architecture
 I'm going to talk more about the tech behind this app. If you don't want to read about that maybe skip to the next section.
 
-Evan asked ChatGPT how someone could build something like this, and when we had our first meeting, he brought up the idea of using a service called [Traccar](https://www.traccar.org/). Traccar - an open source "Modern GPS Tracking Platform" - from my understanding is designed for companies to track fleets of cars, aircraft, etc. Fortunately, they happened to have a mobile client that could connect to their servers, and broadcast a smartphones location to the app. The other big win with Traccar was that it comes with a WebSocket API that broadcasts changes to device locations, allowing us to make updates in realtime. I installed Traccar locally, and tinkered with its API, and I realized that it was perfect for what we need, tracking people, not cars.
+Evan asked ChatGPT how someone could build something like this, and when we had our first meeting, he brought up the idea of using a service called [Traccar](https://www.traccar.org/). Traccar - an open source "Modern GPS Tracking Platform" - from my understanding is designed for companies to track fleets of cars, aircraft, etc. Fortunately, they happened to have a mobile client that could connect to their servers, and broadcast a smartphones location to the app. The other big win with Traccar was that it comes with a WebSocket API that broadcasts changes to device locations, allowing us to make updates in realtime. I installed Traccar locally, tinkered with its API, and I realized that it was perfect for what we need, tracking people, not cars.
 
-With a local installation of Traccar ready to go, I made a Next.js app and set it up with Supabase. I setup the database, made admin users, made all the views, and everything else I needed, *except* real-time updates. The issue with the Traccar API is that with my setup, it exposed all players locations. I wanted to ensure users could only see their own location, and that meant the client could never receive other players locations.
+With a local installation of Traccar ready to go, I made a Next.js app and set it up with Supabase. I set up the database, made admin users, made all the views, and everything else I needed, except real-time updates. The issue with the Traccar API is that with my setup, it exposed all players locations. I wanted to ensure users could only see their own location, and that meant the client could never receive other players' locations.
 
 My solution for this problem was my own WebSocket Server, Hodson Middleman. This server would connect to the Traccar WebSocket, update player locations in the Supabase database, and also send them out to WebSocket clients. I also needed something that was always running to control the borders, so Hodson Middleman also watched and managed border changes. I drew a quick diagram that outlines the communication between each service. TLDR: everything talks to everything
 
@@ -44,7 +44,7 @@ April rolled around and everything was finally done. Balancing school and this p
 
 We invited 25 of our friends to come to the very first beta test of our software. It was quite the success, and everyone had fun. You can watch Evan's video that covered it [here](https://www.youtube.com/watch?v=XRLD9SEvb80).
 
-![Participants in the UBC Beta Test](/images/manhunt/ubcbeta.jpeg)*All of participants in the UBC Beta Test*
+![Participants in the UBC Beta Test](/images/manhunt/ubcbeta.jpeg)*All of the participants in the UBC Beta Test*
 
 We came out of this with a couple of things to work on. To summarize them:
 - We needed to ensure players login using their main browser, and not through something like the Instagram browser, otherwise our QR Code tags wouldn't work
@@ -58,7 +58,7 @@ It was finally May. School was out and I was back home in Calgary. I got on a pl
 
 ![Group of all Hodson Hunt players](/images/manhunt/hodsonhunt.jpg)*All of the players at Hodson Hunt*
 
-From the tech side of things, everything went pretty smooth for our first game. We were definitely pushing Supabase with some very unoptimized database mutations, and we could see everything start slowing down on the admin side at this scale.
+From the tech side of things, everything went pretty smooth for our first game. We were definitely pushing Supabase with some very poorly designed database mutations, and we could see everything start slowing down on the admin side at this scale.
 
 A lot of this slowly got fixed throughout the summer, but overall, our first big event was a success.
 
@@ -69,7 +69,7 @@ Part of doing it properly meant working with the university to make sure they we
 
 ![Our UBC booking](/images/manhunt/bookingarea.png)*Our UBC booking*
 
-We officially had the go-ahead from UBC. Now it was time to start marketing. UBC gave us a cap of 250 participants, our goal was to reach that number. We knew some graphic designers who helped get us some posters and flyers to print. We also needed some online presence so we started making shortform ads, some reaching [over 90k views](https://www.tiktok.com/@ubchunt/video/7545367836043021576). 
+We officially had the go-ahead from UBC. Now it was time to start marketing. UBC gave us a cap of 250 participants. O	ur goal was to reach that number. We knew some graphic designers who helped get us some posters and flyers to print. We also needed some online presence so we started making shortform ads, some reaching [over 90k views](https://www.tiktok.com/@ubchunt/video/7545367836043021576). 
 
 We released the tickets, and sold out a couple of days before the event. 
 
@@ -88,7 +88,7 @@ We decided to ditch the software. I made a Google Doc containing a screenshot of
 
 Despite our doubts, the players had so much fun. We had an amazing response and everyone wanted to see it happen again. On our survey, almost everyone said they would recommend it to a friend, and most people rated it above 4/5 stars.
 
-![Check-in table](/images/manhunt/line.jpg)*Our check-in table*
+![Check-in table](/images/manhunt/checkin.jpg)*Our check-in table*
 
 ![Group of people before the event started](/images/manhunt/ubchuntstart.jpg)*Participants grouped up before the event started*
 
@@ -99,20 +99,21 @@ Despite our doubts, the players had so much fun. We had an amazing response and 
 ### What Happened
 We had a little celebration after the event, as our year of work had finally paid off. When we got home there was still one thing on my mind; what happened to the website?
 
-I started digging deep into the logs of every service we had, and then I found it. Vercel was killing my server actions because they were taking too long, specifically `getAllPlayers()` which would return info on every single player registered. This function was the slowest part of the app, as I had it making multiple database calls for every user. On the Vercel free plan, you are limited to how long these server actions can take, and if they take too long, they get stopped.
+I started digging deep into the logs of every service we had, and then I found it. Vercel was killing my server actions because they were taking too long, specifically `getAllPlayers()` which would return info on every single player registered. This function was the slowest part of the app, because I had it making multiple database calls for every user. On the Vercel free plan, you are limited to how long these server actions can take, and if they take too long, they get stopped.
 
 At this point I realized that had we been on a paid Vercel plan, this probably wouldn't have been an issue, but simply spending more money isn't always a great fix. When I looked into how this function worked, I noticed it was making 2 database calls per player, which doesn't make sense, but to be fair, I wasn't too familiar with more advanced SQL. I was eventually able to get this down to one call by using table joins, and this fixed everything.
 
+### What I learned
+I learned a ton working on this project. We came across so many unique challenges, and each one of them brought something new to the table. Here's a few of my main takeaways:
+- Performance matters, even at small scales
+- Complex systems have many points of failure, and even if you're sure it's perfect, there's probably something waiting to break
+- People care more about the experience than the fancy tech
 ### What's Next
 We have a lot of plans for this project. Here's what we want to do:
 - Run UBC Hunt again
 - Make a native app for a better player experience
 - Bring our event to other universities to share the fun
 
-I love working on this project and I'm so excited to keep growing what we've already started. If you want to follow our journey, be sure to follow our socials linked below.
-
-[UBC Hunt Instagram](https://www.instagram.com/ubchunt/) \
-[UBC Hunt TikTok](https://www.tiktok.com/@ubchunt) \
-[Huntr Instagram](https://www.instagram.com/huntrapp/) (Not active yet)
+I love working on this project and I'm so excited to keep growing what we've already started.
 
 Thanks for reading!

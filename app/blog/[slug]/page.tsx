@@ -13,7 +13,7 @@ export default async function BlogPostPage({
 	const post = await getPost(slug);
 
 	return (
-		<article className="prose prose-invert mx-auto py-10">
+		<article className="prose prose-invert mx-auto py-10 px-2">
 			<div>
 				<h1>{post.metadata.title}</h1>
 				<p>{post.metadata.date}</p>

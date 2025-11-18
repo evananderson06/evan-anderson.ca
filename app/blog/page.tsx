@@ -5,7 +5,7 @@ export default function BlogIndex() {
 	const posts = getAllPosts();
 
 	return (
-		<main className="prose prose-invert mx-auto py-10">
+		<main className="prose prose-invert mx-auto py-10 px-2">
 			<h1>Blog</h1>
 			<ul className="flex flex-col font-bold">
 				{posts.map(({ slug, metadata }) => (
