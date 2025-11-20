@@ -7,10 +7,9 @@ export default function BlogIndex() {
 
 	return (
 		<main className="prose prose-invert mx-auto py-10 px-2">
-			<h1>Blog</h1>
 			{posts.map(({ slug, metadata }) => (
 				<div key={slug} className="font-bold underline">
-					<Link href={`/blog/${slug}`}>{metadata.title}</Link>
+					<Link href={`/writing/${slug}`}>{metadata.title}</Link>
 				</div>
 			))}
 		</main>
