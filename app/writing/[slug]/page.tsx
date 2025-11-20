@@ -12,7 +12,7 @@ export async function generateMetadata({
 }) {
 	const post = await getPost(params.slug);
 	return {
-		title: post.metadata.title,
+		title: "Evan Anderson",
 		description: post.metadata.desc || "",
 		openGraph: {
 			title: post.metadata.title,
