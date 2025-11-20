@@ -1,6 +1,8 @@
 ---
 title: "How we Built MustDance in 18 Hours"
 date: "2025-11-18"
+desc: "We joined an 18 hour hackathon and built a Just Dance clone.."
+image: "/images/mustdance/ui.png"
 ---
 
 *TL;DR: We joined an 18 hour hackathon and built a Just Dance clone.*
