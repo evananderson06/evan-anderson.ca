@@ -10,8 +10,7 @@ export async function generateMetadata({
 }: {
 	params: { slug: string }
 }) {
-	await params;
-	const post = await getPost(params.slug);
+	const post = await getPost((await params).slug);
 	return {
 		title: "Evan Anderson",
 		description: post.metadata.desc || "",
