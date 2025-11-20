@@ -3,17 +3,16 @@ import { getAllPosts } from "@/lib/posts";
 
 export default function BlogIndex() {
 	const posts = getAllPosts();
+	posts.sort((a, b) => new Date(b.metadata.date).getTime() - new Date(a.metadata.date).getTime());
 
 	return (
 		<main className="prose prose-invert mx-auto py-10 px-2">
 			<h1>Blog</h1>
-			<ul className="flex flex-col font-bold">
-				{posts.map(({ slug, metadata }) => (
-					<li key={slug}>
-						<Link href={`/blog/${slug}`}>{metadata.title}</Link>
-					</li>
-				))}
-			</ul>
+			{posts.map(({ slug, metadata }) => (
+				<div key={slug} className="font-bold underline">
+					<Link href={`/blog/${slug}`}>{metadata.title}</Link>
+				</div>
+			))}
 		</main>
 	);
 }
