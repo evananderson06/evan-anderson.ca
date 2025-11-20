@@ -1,5 +1,7 @@
 ---
 title: "The Story of Manhunt"
+desc: "We built a real-time manhunt management system from scratch, ran two large scale events (~350 people), everything broke at the worst time, we improvised, people loved it."
+image: "/images/manhunt/ubcgroup.jpg"
 date: "2025-11-09"
 ---
 
