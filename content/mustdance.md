@@ -30,7 +30,7 @@ The frontend is quite simple, and was built using React. It was responsible for 
 #### Dance Video Generation
 We took some videos of me dancing. We made each video exactly 4 bars long at 120bpm. In each video I tried to start and end in the same position to make stitching the videos together smooth. Once we had these videos, we made a silhouette generator, which used OpenCV and Mediapipe's Selfie Segmentation to mask me out as one color.
 
-For the dance to feel natural, it needed to match up with the beats in the song. To do this we used Librosa, which analyzed each song, and found the BPM and exact timestamps for every beat. This was extremely important because if you're off by even 2 BPM, you will be out of sync by about half a bar 15 seconds in.
+For the dance to feel natural, it needed to match up with the beats in the song. To do this we used Librosa, which analyzed each song, and found the BPM and exact timestamps for every beat. This was extremely important because if you're off by even 2 BPM, you will be out of sync by about half a beat 15 seconds in.
 
 ![2 BPM difference after 15 seconds](/images/mustdance/syncexample.png)
 *2 BPM difference after 15 seconds*
