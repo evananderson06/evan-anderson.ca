@@ -71,7 +71,7 @@ Part of doing it properly meant working with the university to make sure they we
 
 ![Our UBC booking](/images/manhunt/bookingarea.png)*Our UBC booking*
 
-We officially had the go-ahead from UBC. Now it was time to start marketing. UBC gave us a cap of 250 participants. O	ur goal was to reach that number. We knew some graphic designers who helped get us some posters and flyers to print. We also needed some online presence so we started making shortform ads, some reaching [over 90k views](https://www.tiktok.com/@ubchunt/video/7545367836043021576). 
+We officially had the go-ahead from UBC. Now it was time to start marketing. UBC gave us a cap of 250 participants. Our goal was to reach that number. We knew some graphic designers who helped get us some posters and flyers to print. We also needed some online presence so we started making shortform ads, some reaching [over 90k views](https://www.tiktok.com/@ubchunt/video/7545367836043021576). 
 
 We released the tickets, and sold out a couple of days before the event. 
 
