@@ -1,11 +1,17 @@
 import Link from "next/link";
 
 export default function Nav() {
-	return (
-		<nav className="w-full flex justify-center items-center gap-10 py-4">
-			<Link href="/">home</Link>
-			<Link href="https://evananderson06.substack.com/">writing</Link>
-			<Link href="/resume">resume</Link>
-		</nav>
-	)
+  return (
+    <nav className="w-full flex justify-center items-center gap-10 py-4">
+      <Link href="/">home</Link>
+      <Link
+        href="https://evananderson06.substack.com"
+        target="_blank"
+        rel="noopener"
+      >
+        writing
+      </Link>
+      <Link href="/resume">resume</Link>
+    </nav>
+  );
 }
