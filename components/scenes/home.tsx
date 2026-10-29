@@ -92,13 +92,18 @@ export default function Home() {
                                 href.startsWith("http") ? "_blank" : undefined
                             }
                             rel="noreferrer"
-                            className={cn(
-                                "transition-all hover:-translate-y-1",
-                                i % 2 ? "hover:rotate-12" : "hover:-rotate-12",
-                                hover
-                            )}
+                            className={cn("group transition-colors", hover)}
                         >
-                            <Icon size={24} />
+                            <span
+                                className={cn(
+                                    "block transition-all group-hover:-translate-y-1",
+                                    i % 2
+                                        ? "group-hover:rotate-12"
+                                        : "group-hover:-rotate-12"
+                                )}
+                            >
+                                <Icon size={24} />
+                            </span>
                         </a>
                     ))}
                 </div>
