@@ -1,7 +1,5 @@
-import Film from "@components/art/2d/film";
 import Home from "@components/scenes/home";
 import Opening from "@components/scenes/opening";
-import { motion } from "framer-motion";
 import { useCallback, useState } from "react";
 
 const SCENE = {
