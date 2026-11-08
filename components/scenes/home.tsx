@@ -78,6 +78,13 @@ export default function Home() {
                         className="hover:text-emerald-700"
                     />
                 </a>
+
+                <a href="/EvanAndersonResume.pdf">
+                    <WiggleText
+                        text="Resume"
+                        className="hover:text-purple-700"
+                    />
+                </a>
                 {/* <WiggleText */}
                 {/*     text="Photography" */}
                 {/*     className="hover:text-rose-700" */}
