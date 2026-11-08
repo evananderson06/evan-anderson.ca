@@ -71,17 +71,17 @@ export default function Home() {
             <div>
                 <div className="text-5xl font-semibold">Evan Anderson</div>
                 <div className="mb-5">Computer Engineering Student @ UBC</div>
-                <WiggleText text="Projects" className="hover:text-blue-800" />
+                {/* <WiggleText text="Projects" className="hover:text-blue-800" /> */}
                 <a href="https://evananderson06.substack.com/">
                     <WiggleText
                         text="Writing"
                         className="hover:text-emerald-700"
                     />
                 </a>
-                <WiggleText
-                    text="Photography"
-                    className="hover:text-rose-700"
-                />
+                {/* <WiggleText */}
+                {/*     text="Photography" */}
+                {/*     className="hover:text-rose-700" */}
+                {/* /> */}
                 <div className="mt-5 flex gap-4 text-gray-600">
                     {CONTACTS.map(({ href, label, Icon, hover }, i) => (
                         <a
@@ -107,7 +107,6 @@ export default function Home() {
                         </a>
                     ))}
                 </div>
-                <div>Site WIP</div>
             </div>
             <div className="relative">
                 <Film

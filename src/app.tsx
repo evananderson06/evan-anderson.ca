@@ -5,6 +5,7 @@ import { useCallback, useState } from "react";
 const SCENE = {
     Opening: 0,
     Home: 1,
+    Projcets: 2,
 };
 
 function App() {
@@ -18,6 +19,7 @@ function App() {
         <div className="h-screen w-screen bg-[#ebf9ff]">
             {scene === SCENE.Opening && <Opening nextScene={nextScene} />}
             {scene === SCENE.Home && <Home />}
+            {scene === SCENE.Projcets}
         </div>
     );
 }
